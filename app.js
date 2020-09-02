@@ -30,11 +30,12 @@ res.redirect(`/${uuidv4()}`)
       console.log("joining room");
       socket.on('message', message =>{
         io.to(roomID).emit('createMessage', message)
-      })
+      });
+      
    })
  });
 
-
+ 
 
 
 

@@ -8,7 +8,7 @@ myvideo.muted = true;
 var peer = new Peer(undefined, {
     path: '/peerjs',
     host: '/',
-    port: '443'
+    port: '3030'
 });
 
 let myvideostream;
@@ -42,14 +42,15 @@ $('html').keydown(function (e) {
   }
 });
 
+
 socket.on('createMessage', message =>{
     console.log('this comeing from server', message)
     $('.messages').append(`<li class="message"><b>user</b></br>${message}</li>`)
     scrollToBottem();
 })
 
+});
 
-})
 
 peer.on('open', id => {
     socket.emit('join-room', ROOM_ID, id)
